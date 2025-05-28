@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Overview de acciones</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <body>
+    <h1>Análisis de acciones - visión general</h1>
+    <nav style="text-align: center; margin-bottom: 20px">
+      <a href="stockAnalysis.html">🔍 Ir a análisis de acciones individuales</a>
+    </nav>
+    <!-- Visualización: Burbujas jerárquicas -->
+    <section id="viz1">
+      <h2>
+        Visualización jerárquica de las acciones por Sector e Industria según su Market cap
+      </h2>
+      <p>
+        Esta visualización presenta una jerarquía de burbujas donde el nivel más
+        alto corresponde al sector, seguido por la industria y finalmente el
+        ticker de cada empresa. El tamaño de cada burbuja representa la
+        capitalización de mercado (market cap) de la empresa. La visualización
+        incluye filtros interactivos para ajustar la capitalización de mercado,
+        sector, industria, país y ticker, así como una casilla de verificación
+        para mostrar u ocultar los nombres de los tickers.
+      </p>
+
+      <div class="filters">
+        <label
+          >País:
+          <select id="countryFilter1"></select>
+        </label>
+        <label
+          >Sector:
+          <select id="sectorFilter1"></select>
+        </label>
+        <label
+          >Industria:
+          <select id="industryFilter1"></select>
+        </label>
+        <label
+          >Ticker:
+          <select id="tickerFilter1"></select>
+        </label>
+        <label
+          >Market Cap Mín:
+          <input type="number" id="marketCapMin1" value="0" />
+        </label>
+        <label
+          >Market Cap Máx:
+          <input type="number" id="marketCapMax1" value="1000000000000" />
+        </label>
+        <button id="applyFilters1">Aplicar filtros</button>
+        <label>
+          <input type="checkbox" id="toggleTickers" />
+          Mostrar tickers
+        </label>
+      </div>
+      <div id="chart1">
+        <div class="tooltip1"></div>
+      </div>
+      <h3>Aspectos de Diseño y Funcionalidad</h2>
+      <p>
+        El diseño del gráfico considera varios aspectos importantes para mejorar
+        la experiencia del usuario y la funcionalidad analítica:
+      </p>
+      <ul>
+        <li>
+          Se muestran todas las burbujas, no solo el nivel superior, permitiendo
+          observar a nivel general qué sectores pueden tener una burbuja más
+          grande que representa una acción.
+        </li>
+        <li>
+          El contraste de colores ayuda a diferenciar claramente entre sectores,
+          industrias y tickers.
+        </li>
+        <li>
+          Los nombres del primer nivel (sectores) se muestran para evitar la
+          necesidad de usar el tooltip uno por uno.
+        </li>
+        <li>
+          El tooltip proporciona información adicional, y en el caso de los
+          tickers, muestra el ticker y el nombre de la empresa para mayor
+          comprensión.
+        </li>
+        <li>
+          El tamaño de las fuentes se ajusta para que al hacer zoom no sean
+          demasiado grandes.
+        </li>
+        <li>
+          Existe una opción para mostrar u ocultar los tickers, útil en caso de
+          tener muchos tickers.
+        </li>
+        <li>Se puede hacer zoom in y zoom out para una mejor visualización.</li>
+        <li>
+          Los filtros permiten analizar distintas empresas por tamaños muy
+          dispares, y el filtro de capitalización de mercado permite centrarse
+          en empresas más pequeñas que de otro modo quedarían ocultas.
+        </li>
+      </ul>
+      <h3>Interactividad</h2>
+      <p>
+        La visualización incluye varios elementos interactivos que mejoran la
+        experiencia del usuario:
+      </p>
+      <ul>
+        <li>
+          Filtros para ajustar la capitalización de mercado, sector, industria,
+          país y ticker.
+        </li>
+        <li>
+          Casilla de verificación para mostrar u ocultar los nombres de los
+          tickers.
+        </li>
+        <li>Zoom in y zoom out para una mejor visualización de los datos.</li>
+        <li>
+          Tooltip que proporciona información adicional sobre cada burbuja.
+        </li>
+      </ul>
+      <p>
+        En términos de accesibilidad, se ha considerado ajustar el tamaño de las
+        fuentes para que no sean demasiado grandes al hacer zoom, y proporcionar
+        información adicional en el tooltip para una mejor comprensión. Sin
+        embargo, hay algunas limitaciones, como la dificultad de seleccionar las
+        burbujas de los tickers con el tooltip cuando el fondo está
+        sobrecargado, y el solapamiento del texto en algunos casos.
+      </p>
+    </section>
+
+    <!-- Visualización 2: Boxplot dinámico -->
+    <section id="viz2">
+      <h2>
+        Distribución del % de Mujeres en Puestos Directivos por
+        <span id="groupByLabel">país</span>
+      </h2>
+      <p>
+        Esta visualización en forma de boxplot muestra la distribución del porcentaje de mujeres en los puestos directivos de diversas empresas. Se ha elegido el boxplot porque permite analizar la dispersión de los datos y no solo valores centrales. 
+        El gráfico incluye filtros para seleccionar la capitalización de mercado, sector, industria, país y ticker, así como un tooltip que proporciona información detallada al pasar el cursor sobre los elementos.
+      </p>
+      <div class="filters">
+        <label
+          >Agrupar por:
+          <select id="groupBy"></select>
+        </label>
+        <label
+          >País:
+          <select id="countryFilter2"></select>
+        </label>
+        <label
+          >Sector:
+          <select id="sectorFilter2"></select>
+        </label>
+        <label
+          >Industria:
+          <select id="industryFilter2"></select>
+        </label>
+        <label
+          >Ticker:
+          <select id="tickerFilter2"></select>
+        </label>
+        <label
+          >Market Cap Mín:
+          <input type="number" id="marketCapMin2" value="0" />
+        </label>
+        <label
+          >Market Cap Máx:
+          <input type="number" id="marketCapMax2" value="1000000000000" />
+        </label>
+        <button id="applyFilters2">Aplicar filtros</button>
+      </div>
+      <div id="chart2">
+        <div class="tooltip2"></div>
+      </div>
+      <h3>Aspectos de Diseño y Funcionalidad</h2>
+      <p>El diseño del gráfico ha sido optimizado para mejorar la claridad y la experiencia del usuario:</p>
+      <ul>
+        <li>Se han ajustado los espacios en el eje X para evitar cortes en los nombres de las empresas.</li>
+        <li>Los títulos de los ejes han sido añadidos para contextualizar mejor la información mostrada.</li>
+        <li>Los boxplots están diferenciados por colores para mejorar la visualización y el contraste.</li>
+      </ul>
+      <h3>Interactividad</h2><p>La visualización incorpora varios elementos interactivos que enriquecen el análisis:</p>
+        <ul><li>Filtros para seleccionar empresas según diferentes criterios (market cap, sector, industria, país y ticker).</li>
+          <li>Tooltip con detalles adicionales de cada empresa.</li>
+          <li>Se pueden analizar tendencias por sector e industria, facilitando comparaciones entre diferentes grupos de empresas.</li>
+         <li>El tooltip permite obtener información adicional sobre cada empresa, mostrando el ticker y el nombre completo.</li>
+        </ul>
+        <p>En términos de accesibilidad, se ha considerado el ajuste del espacio en los ejes para evitar cortes en los nombres, y el uso de colores contrastantes para mejorar la identificación de los elementos.
+           Sin embargo, algunas limitaciones incluyen la posible sobrecarga visual con grandes volúmenes de datos y la necesidad de evitar el solapamiento de textos en algunos casos.</p>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

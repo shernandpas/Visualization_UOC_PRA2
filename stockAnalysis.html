@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Análisis individual de acciones</title>
+    <link rel="stylesheet" href="styles2.css" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <body>
+    <h1>Análisis individual de acciones</h1>
+    <nav style="text-align: center; margin-bottom: 20px">
+      <a href="index.html">🔍 Ir a al overview de stocks</a>
+    </nav>
+    <h2>Comparación de Acciones en Radar Chart</h2>
+    <p>
+      Esta visualización en forma de radar chart permite comparar hasta cuatro
+      acciones en cinco dimensiones clave: Market Cap ($), Beta, Dividend Rate
+      (%), Operating Margins (%) y Debt-to-Equity. Se ha elegido este tipo de
+      gráfico porque permite observar cómo se caracteriza cada acción en
+      relación con otras, evaluando múltiples variables en lugar de solo una.
+    </p>
+
+    <!-- Radar chart -->
+    <div class="filters">
+      <label
+        >Ticker 1:
+        <select id="ticker1"></select>
+      </label>
+      <label
+        >Ticker 2:
+        <select id="ticker2"></select>
+      </label>
+      <label
+        >Ticker 3:
+        <select id="ticker3"></select>
+      </label>
+      <label
+        >Ticker 4:
+        <select id="ticker4"></select>
+      </label>
+      <button id="updateChart">Actualizar gráfico</button>
+    </div>
+
+    <div id="radarChart">
+      <div class="tooltip"></div>
+    </div>
+    <h3>Aspectos de Diseño y Funcionalidad</h3>
+    <p>
+      El diseño del gráfico ha sido optimizado para mejorar la experiencia del
+      usuario y la claridad de la información:
+    </p>
+    <ul>
+      <li>
+        El área del radar se dibuja para destacar la distribución de los datos.
+      </li>
+      <li>
+        El tooltip muestra el ticker, el nombre de la empresa y el valor de la
+        métrica seleccionada.
+      </li>
+      <li>
+        Se han incluido unidades ($, %) en las métricas para facilitar la
+        interpretación.
+      </li>
+      <li>
+        El tamaño del gráfico se ajusta dinámicamente dependiendo de la cantidad
+        de acciones seleccionadas.
+      </li>
+      <li>
+        En el caso de comparar una sola acción, se definen valores
+        predeterminados para los máximos.
+      </li>
+    </ul>
+    <h3>Interactividad</h3>
+    <p>
+      La visualización incorpora varios elementos interactivos que mejoran el
+      análisis:
+    </p>
+    <ul>
+      <li>Permite comparar hasta cuatro acciones a la vez.</li>
+      <li>
+        El tooltip funciona al pasar por cada punto, incluso cuando un dato
+        queda debajo del área de otra acción.
+      </li>
+      <li>
+        Al seleccionar un elemento en la leyenda, se resalta en el gráfico para
+        una comparación más precisa.
+      </li>
+      <li>
+        La leyenda interactiva permite destacar una acción específica dentro del
+        radar chart.
+      </li>
+    </ul>
+    <p>
+      En términos de accesibilidad, el gráfico ha sido ajustado para asegurar
+      legibilidad y facilidad de comparación. Sin embargo, presenta algunas
+      limitaciones por la falta de datos en algunas métricas para ciertas
+      acciones.
+    </p>
+
+    <!-- Precio del stock -->
+    <section id="priceSection">
+      <h2>Gráfico de Velas para Comparación de Acciones</h2>
+      <p>
+        Este gráfico de velas permite visualizar el comportamiento de hasta
+        cuatro acciones en un solo gráfico, facilitando comparaciones directas
+        de precios y tendencias en un período determinado. Se han integrado
+        características interactivas como una leyenda que permite resaltar una
+        acción específica al seleccionarla, lo que mejora la interpretación de
+        los datos.
+      </p>
+
+      <div class="filters">
+        <label
+          >Ticker 1:
+          <select id="priceTicker1"></select>
+        </label>
+        <label
+          >Ticker 2:
+          <select id="priceTicker2"></select>
+        </label>
+        <label
+          >Ticker 3:
+          <select id="priceTicker3"></select>
+        </label>
+        <label
+          >Ticker 4:
+          <select id="priceTicker4"></select>
+        </label>
+        <button id="updatePriceChart">Actualizar gráfico</button>
+      </div>
+
+      <div id="priceChart">
+        <div class="tooltip-price"></div>
+      </div>
+    </section>
+    <h3>Aspectos de Diseño y Funcionalidad</h3>
+    <p>
+      El diseño del gráfico ha sido optimizado para mejorar la legibilidad y
+      comparación:
+    </p>
+    <ul>
+      <li>
+        Las velas incluyen colores diferenciados para movimientos positivos y
+        negativos.
+      </li>
+      <li>
+        La leyenda muestra el ticker de cada acción junto con los colores
+        correspondientes.
+      </li>
+      <li>
+        Los títulos en los ejes permiten una mejor comprensión de los datos
+        representados.
+      </li>
+      <li>
+        Se ha añadido una linea entre los precios de cierre para visualizar más
+        claramente la evolución de cada acción y comprar las tendencias de cada
+        una.
+      </li>
+    </ul>
+    <h3>Interactividad</h3>
+    <p>
+      El gráfico incorpora elementos interactivos que mejoran la experiencia del
+      usuario:
+    </p>
+    <ul>
+      <li>
+        Al seleccionar una acción en la leyenda, esta se resalta en el gráfico.
+      </li>
+      <li>
+        Los usuarios pueden visualizar hasta cuatro acciones al mismo tiempo.
+      </li>
+      <li>
+        El tooltip muestra los detalles de precios para cada punto, incluyendo
+        la fecha exacta por si hubiese dudas debido a los valores del eje x.
+      </li>
+    </ul>
+    <p>
+      En términos de accesibilidad, el gráfico está diseñado para asegurar una
+      visualización clara y diferenciada de las acciones, aunque presenta
+      algunas limitaciones cuando el rango temporal disponible para una acción
+      no cubre un año completo, el eje X solo muestra los meses en lugar del
+      año.
+    </p>
+
+    <script src="script2.js"></script>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f8f8f8;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: left;
+}
+
+h2 {
+  text-align: left;
+  color: #0073e6;
+  font-weight: bold;
+}
+
+h3 {
+  text-align: left;
+  color: #5a5a5a;
+  font-style: italic;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px;
+}
+
+#radarChart {
+  width: 700px;
+  height: 700px;
+  margin: auto;
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  visibility: hidden;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.axisLabel {
+  font-size: 12px;
+  fill: #333;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+.legend-color {
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+#priceChart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+
+.tooltip-price {
+  position: absolute;
+  visibility: hidden;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  pointer-events: none;
+  z-index: 1000;
+}

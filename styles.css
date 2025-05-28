@@ -1,0 +1,87 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f9f9f9;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: left;
+  color: #0073e6;
+  font-weight: bold;
+}
+
+h3 {
+  text-align: left;
+  color: #5a5a5a;
+  font-style: italic;
+}
+
+.filters {
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+#chart1,
+#chart2 {
+  position: relative;
+  margin: 0 auto 40px;
+}
+
+#chart1 {
+  width: 560px;
+  height: 560px;
+  overflow: hidden;
+}
+
+#chart2 {
+  width: 700px;
+  height: 450px;
+}
+
+.tooltip1,
+.tooltip2 {
+  position: absolute;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+#chart1 svg circle {
+  cursor: pointer;
+}
+
+.axis text {
+  font-size: 12px;
+}
+
+.chart-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.axis-label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.box {
+  stroke: #000;
+  opacity: 0.7;
+}
+
+.line {
+  stroke: #000;
+}
